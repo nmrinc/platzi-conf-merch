@@ -43,3 +43,10 @@ Install **Babel** dependencies so the project can compile to use in any browser
 ```npm
 >npm i -D babel-loader @babel/preset-env @babel/preset-react @babel/core
 ```
+
+Generate the Webpack and Babel configuration files
+
+- ./webpack.config.js
+- ./.babelrc
+
+Then after setup this configurations add the start and build scripts to package.json
