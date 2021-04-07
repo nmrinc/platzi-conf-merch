@@ -150,3 +150,29 @@ Then add the trigger scripts to package.json
 "lint": "eslint src/ --fix"
 ```
 
+Add Lint-staged and Husky to ensure commits quality
+
+```npm
+%> npx mrm lint-staged
+```
+
+After installed modify the package.json script to add needed files
+
+```json
+"simple-git-hooks": {
+  "pre-commit": "npx lint-staged"
+},
+"lint-staged": {
+	"src/**/*.{html,ts,js,jsx,json,css,scss}": [
+		"eslint --cache --fix",
+		"prettier --write",
+		"git add"
+	]
+}
+```
+
+If hook doesn't deploy before commit, must register this configuration with the next command
+
+```npm
+%> npx simple-git-hooks
+```
