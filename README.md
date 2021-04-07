@@ -50,3 +50,14 @@ Generate the Webpack and Babel configuration files
 - ./.babelrc
 
 Then after setup this configurations add the start and build scripts to package.json
+
+```json
+"start": "webpack serve --mode development",
+"build": "webpack --mode production",
+```
+
+Install the css and sass loader, then and configure it on webpack config to use sass styles into the project
+
+```npm
+>npm i -D css-loader sass-loader node-sass mini-css-extract-plugin
+```

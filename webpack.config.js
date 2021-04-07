@@ -4,6 +4,7 @@
 const path = require('path');
 //@a Require the HtmlWebpackPlugin
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 //@a Declare the module export object
 module.exports = {
@@ -42,6 +43,17 @@ module.exports = {
             loader: 'html-loader'
           }
         ]
+      },
+      {
+        //@a Declare the css rules
+        test: /\.(s*)css$/,
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader,
+          },
+          'css-loader',
+          'sass-loader',
+        ],
       }
     ]
   },
@@ -51,6 +63,9 @@ module.exports = {
       template: './public/index.html',
       filename: './index.html'
     }),
+    new MiniCssExtractPlugin({
+      filename: 'assets/[contenthash].css',
+    })
   ],
   //@a Generate a development server
   devServer: {
