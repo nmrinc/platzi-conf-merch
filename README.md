@@ -56,8 +56,61 @@ Then after setup this configurations add the start and build scripts to package.
 "build": "webpack --mode production",
 ```
 
-Install the css and sass loader, then and configure it on webpack config to use sass styles into the project
+Install the css and sass loader
 
 ```npm
 >npm i -D css-loader sass-loader node-sass mini-css-extract-plugin
+```
+
+Then and configure it on webpack config to use sass styles into the project
+
+```Js
+{
+  test: /\.(s*)css$/,
+  use: [
+    {
+      loader: MiniCssExtractPlugin.loader,
+    },
+    'css-loader',
+    'sass-loader',
+  ],
+}
+```
+
+If you want to use Less must install less loaders
+
+```npm
+>npm i -D less less-loader
+```
+
+Then configure it on webpack config
+
+```Js
+{
+	test: /\.less$/,
+	loader: [
+		MiniCSSExtractPlugin.loader,
+		'css-loader',
+		'less-loader'
+	]
+}
+```
+
+If you want to use Stylus must install it's loaders
+
+```npm
+>npm i -D stylus stylus-loader
+```
+
+Then configure it on webpack config
+
+```Js
+{
+	test: /\.styl$/,
+	loader: [
+		MiniCSSExtractPlugin.loader,
+		'css-loader',
+		'stylus-loader'
+	]
+}
 ```
