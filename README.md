@@ -6,10 +6,11 @@ This project was created from scratch following the next process
 
 ---
 
-### Install React and react-dom
+### Install React, react-dom and react-router-dom
 
 ```npm
-%> npm i react react-dom
+%> npm i react react-dom react-router-dom
+
 ```
 
 ---
@@ -175,4 +176,20 @@ If hook doesn't deploy before commit, must register this configuration with the 
 
 ```npm
 %> npx simple-git-hooks
+```
+
+### Icons library
+
+To use icons inside the project, you can install the React [Fortawesome](https://fontawesome.com/how-to-use/on-the-web/using-with/react) library
+
+For core Icons
+
+```npm
+%> npm i @fortawesome/free-brands-svg-icons @fortawesome/free-regular-svg-icons
+```
+
+For additional styles
+
+```npm
+%> npm i @fortawesome/free-brands-svg-icons @fortawesome/free-regular-svg-icons
 ```
