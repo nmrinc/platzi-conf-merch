@@ -9,6 +9,7 @@ const Header = () => {
   const {
     state: { cart },
   } = useContext(AppContext);
+
   return (
     <div className="Header">
       <Link to="/">
@@ -18,7 +19,11 @@ const Header = () => {
         <Link to="/checkout">
           <FontAwesomeIcon icon="shopping-basket" size="lg" />
         </Link>
-        {cart.length >= 1 && <div className="Header-alert">{cart.length}</div>}
+        {cart.length >= 1 && (
+          <div className="Header-alert">
+            {cart.reduce((acc, item) => item.quantity + acc, 0)}
+          </div>
+        )}
       </div>
     </div>
   );
