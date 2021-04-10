@@ -1,14 +1,22 @@
 import React, { useRef, useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { AppContext } from '../../context/AppContext';
 import '../../styles/components/Information.scss';
 
+/**
+ * ! If the useHistory hook won't work you can obtain the history from browser router
+ * @a Just have to decompile it as a prop
+ * @tst const Information = ({ history }) => {}
+ * @a Then push the route you want in the same way.
+ * @o That's the functionality of the useHistory hook, bring history to use it.
+ */
 const Information = () => {
   const {
     state: { cart },
     addToBuyer,
   } = useContext(AppContext);
   const form = useRef(null);
+  const history = useHistory();
 
   const handleSubmit = () => {
     const formData = new FormData(form.current);
@@ -26,6 +34,7 @@ const Information = () => {
     };
 
     addToBuyer(_buyer);
+    history.push('/checkout/payment');
   };
 
   return (
