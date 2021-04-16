@@ -6,6 +6,10 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
+// @o To use an .env file and don't expose sensitive data use dotenv
+// @a Require dotenv dependencies
+const Dotenv = require('dotenv-webpack')
+
 // @a Declare the module export object
 module.exports = {
   // @a Declare the entry point so webpack starts from this file
@@ -68,6 +72,7 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: 'assets/[contenthash].css',
     }),
+    new Dotenv(),
   ],
   // @a Generate a development server
   devServer: {
