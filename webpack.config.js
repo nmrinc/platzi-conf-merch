@@ -6,9 +6,13 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
+// @context PWA configuration
+// @a Import copy-webpack-plugin so it can copy files from public file to final dist
+const CopyPlugin = require('copy-webpack-plugin');
+
 // @o To use an .env file and don't expose sensitive data use dotenv
 // @a Require dotenv dependencies
-const Dotenv = require('dotenv-webpack')
+const Dotenv = require('dotenv-webpack');
 
 // @a Declare the module export object
 module.exports = {
@@ -21,12 +25,12 @@ module.exports = {
     // @o All the Js used inside the project will compile into this file
     filename: 'bundle.js',
     // @a Declare the public path to the root of the project
-    publicPath: '/'
+    publicPath: '/',
   },
   // @a Declare the resolve object with the extensions to compile
   resolve: {
     // @o In this case as the project will use React, we use js for logic files and jsx for files that use html inside o React files
-    extensions: ['.js', '.jsx']
+    extensions: ['.js', '.jsx'],
   },
   // @a Declare the module with rules that will tell webpack how to compile
   module: {
@@ -73,6 +77,14 @@ module.exports = {
       filename: 'assets/[contenthash].css',
     }),
     new Dotenv(),
+    // @a Add the configuration so the public files can be copied on build
+    new CopyPlugin({
+      patterns: [
+        { from: 'public/manifest.json', to: '' },
+        { from: 'public/service-worker.js', to: '' },
+        { from: 'public/icon.png', to: 'assets' },
+      ],
+    }),
   ],
   // @a Generate a development server
   devServer: {
