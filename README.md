@@ -193,3 +193,13 @@ For additional styles
 ```npm
 %> npm i @fortawesome/free-brands-svg-icons @fortawesome/free-regular-svg-icons
 ```
+
+---
+
+### [Professor repository](https://github.com/platzi/platzi-conf-store/tree/RH-google-address)
+
+---
+
+### [ClassNotes](https://github.com/platzi/platzi-conf-store/tree/RH-google-address)
+
+Thanks to [Fernando Quinteros Gutierrez](https://platzi.com/p/fernando-quinteros-gutierrez/)
