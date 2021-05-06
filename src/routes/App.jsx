@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 import {
+  faCircleNotch,
   faShoppingBasket,
   faTrashAlt,
 } from '@fortawesome/free-solid-svg-icons';
@@ -18,7 +19,7 @@ import Payment from '../containers/Payment';
 import Success from '../containers/Success';
 import NotFound from '../containers/NotFound';
 
-library.add(faShoppingBasket, faTrashAlt);
+library.add(faShoppingBasket, faTrashAlt, faCircleNotch);
 
 const App = () => (
   <AppProvider>
